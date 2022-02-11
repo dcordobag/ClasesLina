@@ -2,7 +2,7 @@
 namespace EncontrarFamiliaridad
 {
     using System;
-    internal class Program
+    internal static class Program
     {
         static void Main(string[] args)
         {
@@ -10,9 +10,9 @@ namespace EncontrarFamiliaridad
             string parentescoConAndres;
 
             parentescoConPadres = LeerParentezco();
-            parentescoConAndres = calcularParentesco(parentescoConPadres);
-            
-            Console.WriteLine($"La persona es el/la:{parentescoConAndres} de Andres");
+            parentescoConAndres = CalcularParentesco(parentescoConPadres);
+
+            Console.WriteLine($"La persona es el/la {parentescoConAndres} de Andres");
 
             Console.ReadKey();
         }
@@ -22,28 +22,24 @@ namespace EncontrarFamiliaridad
             return Console.ReadLine();
         }
 
-        static string calcularParentesco(string familiaridad)
+        static string CalcularParentesco(string parentezco)
         {
-            if (familiaridad.ToLowerInvariant() == "hermano" || familiaridad.ToLowerInvariant() == "hermana")
+            if (parentezco.ToLowerInvariant() == "hermano" || parentezco.ToLowerInvariant() == "hermana")
             {
                 return "tio/tia";
             }
-
-            else if (familiaridad.ToLowerInvariant() == "madre" || familiaridad.ToLowerInvariant() == "padre")
+            else if (parentezco.ToLowerInvariant() == "madre" || parentezco.ToLowerInvariant() == "padre")
             {
                 return "Abuelo/abuela";
             }
-
-            else if (familiaridad.ToLowerInvariant() == "sobrino" || familiaridad.ToLowerInvariant() == "sobrina")
+            else if (parentezco.ToLowerInvariant() == "sobrino" || parentezco.ToLowerInvariant() == "sobrina")
             {
                 return "primo/prima";
             }
-
-            else if (familiaridad.ToLowerInvariant() == "hijo" || familiaridad.ToLowerInvariant() == "hija")
+            else if (parentezco.ToLowerInvariant() == "hijo" || parentezco.ToLowerInvariant() == "hija")
             {
                 return "hermano/hermana";
             }
-
             else
             {
                 return "El parentesco no es valido";
